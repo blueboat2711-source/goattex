@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOAT TEX — Technical Textile Care from Thailand</title>
+    <meta name="description" content="ผลิตภัณฑ์ดูแลและซักทำความสะอาดเสื้อผ้า Technical Outdoor / Waterproof-Breathable จากประเทศไทย ไม่มี PFC/PFAS">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --goat-primary: #1a1a2e;
+            --goat-accent: #e94560;
+            --goat-gold: #c9a227;
+            --goat-light: #f5f5f5;
+            --goat-dark: #0f0f1a;
+            --goat-teal: #16c79a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Noto Sans Thai', 'Inter', -apple-system, sans-serif; 
+            background: var(--goat-dark); 
+            color: #fff; 
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .nav { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            z-index: 1000; 
+            background: rgba(15,15,26,0.95); 
+            backdrop-filter: blur(20px); 
+            border-bottom: 1px solid rgba(255,255,255,0.1); 
+            padding: 0 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            height: 70px; 
+        }
+        .nav-logo { font-size: 24px; font-weight: 800; color: var(--goat-gold); letter-spacing: 2px; }
+        .nav-logo span { color: #fff; }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a { 
+            color: rgba(255,255,255,0.7); 
+            text-decoration: none; 
+            font-size: 14px; 
+            font-weight: 500; 
+            transition: color 0.3s; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
+        .nav-links a:hover { color: var(--goat-gold); }
+        .nav-cta { 
+            background: var(--goat-accent); 
+            color: #fff; 
+            padding: 10px 24px; 
+            border-radius: 30px; 
+            font-size: 13px; 
+            font-weight: 600; 
+            border: none; 
+            cursor: pointer; 
+            transition: transform 0.3s; 
+        }
+        .nav-cta:hover { transform: scale(1.05); }
+        .mobile-menu-btn { display: none; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; }
+
+        /* Hero Section */
+        .hero { 
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            padding: 120px 40px 80px; 
+            background: linear-gradient(135deg, var(--goat-dark) 0%, var(--goat-primary) 50%, #16213e 100%); 
+            position: relative; 
+            overflow: hidden; 
+        }
+        .hero::before { 
+            content: ''; 
+            position: absolute; 
+            top: -50%; 
+            left: -50%; 
+            width: 200%; 
+            height: 200%; 
+            background: radial-gradient(circle, rgba(233,69,96,0.08) 0%, transparent 50%); 
+            animation: pulse 8s ease-in-out infinite; 
+        }
+        @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+        .hero-content { position: relative; z-index: 2; max-width: 900px; }
+        .hero-badge { 
+            display: inline-block; 
+            background: rgba(201,162,39,0.15); 
+            border: 1px solid var(--goat-gold); 
+            color: var(--goat-gold); 
+            padding: 8px 20px; 
+            border-radius: 30px; 
+            font-size: 12px; 
+            font-weight: 600; 
+            letter-spacing: 2px; 
+            margin-bottom: 30px; 
+            text-transform: uppercase; 
+        }
+        .hero h1 { 
+            font-size: 64px; 
+            font-weight: 800; 
+            line-height: 1.1; 
+            margin-bottom: 24px; 
+            background: linear-gradient(135deg, #fff 0%, var(--goat-gold) 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        .hero h1 .highlight { 
+            color: var(--goat-accent); 
+            -webkit-text-fill-color: var(--goat-accent); 
+        }
+        .hero-subtitle { 
+            font-size: 20px; 
+            color: rgba(255,255,255,0.6); 
+            line-height: 1.6; 
+            margin-bottom: 40px; 
+            max-width: 600px; 
+            margin-left: auto; 
+            margin-right: auto; 
+        }
+        .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary { 
+            background: var(--goat-accent); 
+            color: #fff; 
+            padding: 16px 40px; 
+            border-radius: 50px; 
+            font-size: 16px; 
+            font-weight: 600; 
+            border: none; 
+            cursor: pointer; 
+            transition: all 0.3s; 
+            box-shadow: 0 10px 40px rgba(233,69,96,0.3); 
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 50px rgba(233,69,96,0.4); }
+        .btn-secondary { 
+            background: transparent; 
+            color: #fff; 
+            padding: 16px 40px; 
+            border-radius: 50px; 
+            font-size: 16px; 
+            font-weight: 600; 
+            border: 2px solid rgba(255,255,255,0.3); 
+            cursor: pointer; 
+            transition: all 0.3s; 
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-secondary:hover { border-color: var(--goat-gold); color: var(--goat-gold); }
+        .hero-stats { display: flex; gap: 60px; justify-content: center; margin-top: 60px; }
+        .stat-item { text-align: center; }
+        .stat-number { font-size: 36px; font-weight: 800; color: var(--goat-gold); }
+        .stat-label { font-size: 13px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; margin-top: 8px; }
+
+        /* Problem Section */
+        .problem { padding: 120px 40px; background: var(--goat-primary); }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-tag { color: var(--goat-accent); font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+        .section-title { font-size: 42px; font-weight: 700; margin-bottom: 16px; }
+        .section-subtitle { color: rgba(255,255,255,0.5); font-size: 18px; max-width: 600px; margin: 0 auto; }
+        .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; }
+        .problem-card { 
+            background: rgba(255,255,255,0.03); 
+            border: 1px solid rgba(255,255,255,0.08); 
+            border-radius: 16px; 
+            padding: 32px; 
+            transition: all 0.3s; 
+        }
+        .problem-card:hover { 
+            border-color: var(--goat-accent); 
+            transform: translateY(-5px); 
+            background: rgba(255,255,255,0.05); 
+        }
+        .problem-icon { 
+            width: 48px; 
+            height: 48px; 
+            background: rgba(233,69,96,0.15); 
+            border-radius: 12px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 24px; 
+            margin-bottom: 20px; 
+        }
+        .problem-card h3 { font-size: 20px; margin-bottom: 12px; }
+        .problem-card p { color: rgba(255,255,255,0.6); line-height: 1.6; font-size: 15px; }
+
+        /* Product Section */
+        .products { padding: 120px 40px; background: var(--goat-dark); }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .product-card { 
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%); 
+            border: 1px solid rgba(255,255,255,0.08); 
+            border-radius: 20px; 
+            padding: 40px; 
+            position: relative; 
+            overflow: hidden; 
+            transition: all 0.4s; 
+        }
+        .product-card:hover { 
+            transform: translateY(-8px); 
+            border-color: var(--goat-gold); 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3); 
+        }
+        .product-badge { 
+            position: absolute; 
+            top: 20px; 
+            right: 20px; 
+            background: var(--goat-gold); 
+            color: var(--goat-dark); 
+            padding: 6px 16px; 
+            border-radius: 20px; 
+            font-size: 11px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
+        .product-card h3 { font-size: 26px; margin-bottom: 12px; }
+        .product-desc { color: rgba(255,255,255,0.6); margin-bottom: 24px; line-height: 1.6; }
+        .product-features { list-style: none; margin-bottom: 30px; }
+        .product-features li { 
+            padding: 8px 0; 
+            color: rgba(255,255,255,0.7); 
+            font-size: 14px; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+        }
+        .product-features li::before { content: '✓'; color: var(--goat-teal); font-weight: bold; }
+        .product-price { font-size: 32px; font-weight: 800; color: var(--goat-gold); margin-bottom: 20px; }
+        .product-price span { font-size: 14px; color: rgba(255,255,255,0.4); font-weight: 400; }
+        .product-btn { 
+            width: 100%; 
+            background: rgba(255,255,255,0.1); 
+            color: #fff; 
+            padding: 14px; 
+            border-radius: 12px; 
+            border: 1px solid rgba(255,255,255,0.2); 
+            font-size: 15px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            transition: all 0.3s; 
+            font-family: 'Noto Sans Thai', sans-serif;
+        }
+        .product-btn:hover { background: var(--goat-accent); border-color: var(--goat-accent); }
+
+        /* Science Section */
+        .science { padding: 120px 40px; background: var(--goat-primary); }
+        .science-content { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 80px; 
+            align-items: center; 
+        }
+        .science-text h2 { font-size: 36px; margin-bottom: 24px; }
+        .science-text p { color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 20px; font-size: 16px; }
+        .science-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
+        .fact-item { 
+            background: rgba(255,255,255,0.03); 
+            border-radius: 12px; 
+            padding: 20px; 
+            border: 1px solid rgba(255,255,255,0.08); 
+        }
+        .fact-item h4 { color: var(--goat-gold); font-size: 14px; margin-bottom: 8px; }
+        .fact-item p { font-size: 13px; color: rgba(255,255,255,0.5); margin: 0; }
+        .science-visual { 
+            background: rgba(255,255,255,0.03); 
+            border-radius: 20px; 
+            padding: 40px; 
+            border: 1px solid rgba(255,255,255,0.08); 
+            text-align: center; 
+        }
+        .droplet-demo { width: 200px; height: 200px; margin: 0 auto 30px; position: relative; }
+        .droplet { 
+            width: 80px; 
+            height: 80px; 
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); 
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; 
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            animation: bounce 2s ease-in-out infinite; 
+            box-shadow: 0 10px 30px rgba(0,242,254,0.3); 
+        }
+        @keyframes bounce { 0%,100% { transform: translate(-50%, -50%) scale(1); } 50% { transform: translate(-50%, -60%) scale(1.05); } }
+        .fabric-layer { 
+            width: 100%; 
+            height: 60px; 
+            background: linear-gradient(90deg, #333 0%, #555 50%, #333 100%); 
+            border-radius: 8px; 
+            margin-top: 20px; 
+            position: relative; 
+            overflow: hidden; 
+        }
+        .fabric-layer::after { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: -100%; 
+            width: 100%; 
+            height: 100%; 
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); 
+            animation: shine 3s infinite; 
+        }
+        @keyframes shine { 0% { left: -100%; } 100% { left: 100%; } }
+
+        /* Testimonials */
+        .testimonials { padding: 120px 40px; background: var(--goat-dark); }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto; }
+        .testimonial-card { 
+            background: rgba(255,255,255,0.03); 
+            border: 1px solid rgba(255,255,255,0.08); 
+            border-radius: 16px; 
+            padding: 32px; 
+        }
+        .stars { color: var(--goat-gold); margin-bottom: 16px; font-size: 18px; }
+        .testimonial-text { 
+            font-size: 16px; 
+            line-height: 1.7; 
+            color: rgba(255,255,255,0.8); 
+            margin-bottom: 20px; 
+            font-style: italic; 
+        }
+        .testimonial-author { display: flex; align-items: center; gap: 16px; }
+        .author-avatar { 
+            width: 48px; 
+            height: 48px; 
+            background: linear-gradient(135deg, var(--goat-accent), var(--goat-gold)); 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: 700; 
+            font-size: 18px; 
+        }
+        .author-info h4 { font-size: 15px; margin-bottom: 4px; }
+        .author-info p { font-size: 13px; color: rgba(255,255,255,0.4); }
+
+        /* CTA Section */
+        .cta { 
+            padding: 100px 40px; 
+            background: linear-gradient(135deg, var(--goat-accent) 0%, #c73e54 100%); 
+            text-align: center; 
+        }
+        .cta h2 { font-size: 42px; font-weight: 800; margin-bottom: 20px; }
+        .cta p { font-size: 18px; opacity: 0.9; margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .cta-btn { 
+            background: #fff; 
+            color: var(--goat-accent); 
+            padding: 18px 50px; 
+            border-radius: 50px; 
+            font-size: 18px; 
+            font-weight: 700; 
+            border: none; 
+            cursor: pointer; 
+            transition: all 0.3s; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2); 
+            text-decoration: none;
+            display: inline-block;
+        }
+        .cta-btn:hover { transform: scale(1.05); box-shadow: 0 15px 50px rgba(0,0,0,0.3); }
+
+        /* Footer */
+        .footer { padding: 60px 40px 30px; background: #0a0a14; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; max-width: 1200px; margin: 0 auto; }
+        .footer-brand h3 { font-size: 24px; color: var(--goat-gold); margin-bottom: 16px; }
+        .footer-brand p { color: rgba(255,255,255,0.4); line-height: 1.7; font-size: 14px; }
+        .footer-col h4 { font-size: 14px; color: #fff; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 12px; }
+        .footer-col a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 14px; transition: color 0.3s; }
+        .footer-col a:hover { color: var(--goat-gold); }
+        .footer-bottom { 
+            text-align: center; 
+            padding-top: 40px; 
+            margin-top: 40px; 
+            border-top: 1px solid rgba(255,255,255,0.05); 
+            color: rgba(255,255,255,0.3); 
+            font-size: 13px; 
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 36px; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .science-content { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hero-stats { flex-direction: column; gap: 30px; }
+            .hero { padding: 100px 20px 60px; }
+            .problem, .products, .science, .testimonials, .cta { padding: 80px 20px; }
+            .section-title { font-size: 28px; }
+            .nav { padding: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-logo">GOAT <span>TEX</span></div>
+        <ul class="nav-links">
+            <li><a href="#products">ผลิตภัณฑ์</a></li>
+            <li><a href="#science">เทคโนโลยี</a></li>
+            <li><a href="#problem">ปัญหา</a></li>
+            <li><a href="#testimonials">รีวิว</a></li>
+            <li><a href="#about">เกี่ยวกับเรา</a></li>
+        </ul>
+        <a href="#products" class="nav-cta">สั่งซื้อเลย</a>
+        <button class="mobile-menu-btn" onclick="alert('Mobile menu - ต้องเพิ่ม JavaScript สำหรับเมนูมือถือ')">☰</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Technical Textile Care จากประเทศไทย</div>
+            <h1>ดูแลเสื้อผ้า<br><span class="highlight">Technical Outdoor</span><br>ของคุณให้ถูกวิธี</h1>
+            <p class="hero-subtitle">น้ำยาซักและดูแลเสื้อผ้า Waterproof-Breathable ที่ออกแบบมาเฉพาะทาง ปกป้อง DWR และ Membrane ให้เสื้อกันฝนของคุณกลับมาทำงานได้เต็มประสิทธิภาพ</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn-primary">สำรวจผลิตภัณฑ์ →</a>
+                <a href="#science" class="btn-secondary">ดูวิธีใช้</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">เสื้อผ้าที่ดูแลแล้ว</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.9</div>
+                    <div class="stat-label">คะแนนรีวิว</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">0%</div>
+                    <div class="stat-label">PFC / PFAS</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem" id="problem">
+        <div class="section-header">
+            <div class="section-tag">ทำไมต้อง GOAT TEX?</div>
+            <h2 class="section-title">ปัญหาที่นัก Outdoor ทุกคนเจอ</h2>
+            <p class="section-subtitle">เสื้อผ้า Technical Outdoor มีราคาสูง แต่การดูแลที่ผิดวิธีอาจทำให้เสียหายได้ง่าย</p>
+        </div>
+        <div class="problem-grid">
+            <div class="problem-card">
+                <div class="problem-icon">💧</div>
+                <h3>น้ำยาซักทั่วไปทำลาย DWR</h3>
+                <p>สารซักฟอกทั่วไปมีส่วนผสมที่ละลายหรือทำลายชั้น DWR (Durable Water Repellent) บนผ้า ทำให้น้ำซึมเข้าเสื้อแทนที่จะไหลออก</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">🧪</div>
+                <h3>สารเคมีที่ไม่เหมาะสม</h3>
+                <p>น้ำยาซักผ้าทั่วไปอาจมี Surfactant ประเภท Cationic หรือสารที่ทิ้ง residue บน membrane ทำให้สูญเสียคุณสมบัติระบายอากาศ</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">💰</div>
+                <h3>ผลิตภัณฑ์นำเข้าแพงเกินไป</h3>
+                <p>Nikwax, Grangers มีราคาสูงและหาซื้อยากในประเทศไทย ผู้ใช้หลายคนจึงเลือกใช้น้ำยาทั่วไปแทน</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">❓</div>
+                <h3>ไม่รู้ว่าควรซักอย่างไร</h3>
+                <p>ผู้ใช้ส่วนใหญ่ไม่เข้าใจความแตกต่างระหว่าง Waterproof, Water Repellent, DWR และ Membrane จึงดูแลเสื้อผ้าผิดวิธี</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">🌿</div>
+                <h3>กังวลเรื่องสารเคมี</h3>
+                <p>ผลิตภัณฑ์บางชนิดยังมีส่วนผสมของ PFC/PFAS ซึ่งเป็นสารตกค้างในอุตสาหกรรมสิ่งทอที่มีผลต่อสิ่งแวดล้อม</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">⏱️</div>
+                <h3>อายุการใช้งานสั้นลง</h3>
+                <p>เสื้อผ้า Technical Outdoor ราคาหลายพันบาท แต่หากดูแลไม่ดีอายุการใช้งานจะลดลงอย่างมาก ต้องซื้อใหม่บ่อยครั้ง</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="section-header">
+            <div class="section-tag">ผลิตภัณฑ์ของเรา</div>
+            <h2 class="section-title">เลือกผลิตภัณฑ์ที่เหมาะกับคุณ</h2>
+            <p class="section-subtitle">ออกแบบมาเฉพาะสำหรับเสื้อผ้า Technical Outdoor แต่ละระดับความต้องการ</p>
+        </div>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-badge">เริ่มต้น</div>
+                <h3>GOAT TEX Technical Wash</h3>
+                <p class="product-desc">น้ำยาซักเฉพาะทางสำหรับเสื้อผ้า Waterproof-Breathable ทำความสะอาดอย่างอ่อนโยนโดยไม่ทำลาย DWR</p>
+                <ul class="product-features">
+                    <li>Non-ionic Surfactant ที่ปลอดภัยต่อ Membrane</li>
+                    <li>ไม่มี Optical Brightener</li>
+                    <li>ไม่มี Enzyme ที่ทำลาย DWR</li>
+                    <li>ปรับสภาพน้ำอ่อนโยน</li>
+                    <li>กลิ่นสดชื่น ไม่ฉุน</li>
+                </ul>
+                <div class="product-price">฿189 <span>/ 500ml</span></div>
+                <button class="product-btn" onclick="alert('ระบบสั่งซื้อ - ต้องเชื่อมต่อกับ Shopee/Lazada หรือ Payment Gateway')">เพิ่มลงตะกร้า</button>
+            </div>
+            <div class="product-card">
+                <div class="product-badge" style="background: var(--goat-accent);">ยอดนิยม</div>
+                <h3>GOAT TEX Wash + Repel</h3>
+                <p class="product-desc">ซักและเคลือบ Water Repellency ในขั้นตอนเดียว สำหรับเสื้อที่ DWR เริ่มเสื่อมสภาพ</p>
+                <ul class="product-features">
+                    <li>ทุกอย่างใน Technical Wash</li>
+                    <li>เพิ่ม Fluorine-Free Water Repellent Polymer</li>
+                    <li>ช่วยเพิ่ม Contact Angle ของผ้า</li>
+                    <li>ไม่มี PFC / PFAS</li>
+                    <li>เหมาะกับเสื้อที่ซักบ่อย</li>
+                </ul>
+                <div class="product-price">฿249 <span>/ 500ml</span></div>
+                <button class="product-btn" onclick="alert('ระบบสั่งซื้อ - ต้องเชื่อมต่อกับ Shopee/Lazada หรือ Payment Gateway')">เพิ่มลงตะกร้า</button>
+            </div>
+            <div class="product-card">
+                <div class="product-badge" style="background: var(--goat-teal); color: var(--goat-dark);">พรีเมียม</div>
+                <h3>GOAT TEX Pro Repel</h3>
+                <p class="product-desc">น้ำยาเคลือบ Water Repellency ระดับสูง สำหรับการรีเซ็ต DWR หลังจากซักด้วย Technical Wash</p>
+                <ul class="product-features">
+                    <li>สูตรเข้มข้นสำหรับการเคลือบโดยเฉพาะ</li>
+                    <li>Fluorine-Free สูตรพิเศษ</li>
+                    <li>เพิ่มความทนทานต่อการซักหลายครั้ง</li>
+                    <li>เหมาะกับเสื้อที่ใช้งานหนัก</li>
+                    <li>ใช้ร่วมกับ Technical Wash ได้</li>
+                </ul>
+                <div class="product-price">฿299 <span>/ 300ml</span></div>
+                <button class="product-btn" onclick="alert('ระบบสั่งซื้อ - ต้องเชื่อมต่อกับ Shopee/Lazada หรือ Payment Gateway')">เพิ่มลงตะกร้า</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Science Section -->
+    <section class="science" id="science">
+        <div class="science-content">
+            <div class="science-text">
+                <div class="section-tag">เทคโนโลยี</div>
+                <h2>วิทยาศาสตร์เบื้องหลัง<br>การดูแลเสื้อผ้า Technical</h2>
+                <p>เสื้อผ้า Waterproof-Breathable มีโครงสร้างที่ซับซ้อน ประกอบด้วยชั้น Outer Fabric, DWR Coating, Membrane (เช่น GORE-TEX®, eVent®) และชั้น Lining แต่ละชั้นต้องการการดูแลที่แตกต่างกัน</p>
+                <p>GOAT TEX ใช้สารทำความสะอาดกลุ่ม APG (Alkyl Polyglucoside) และ Non-ionic Surfactant ที่ไม่ทิ้ง Residue บนผิวผ้า ไม่ทำลายชั้น DWR และไม่รบกวนการทำงานของ Membrane</p>
+                <div class="science-facts">
+                    <div class="fact-item">
+                        <h4>Contact Angle</h4>
+                        <p>มุมที่น้ำสัมผัสผ้า ยิ่งสูงยิ่งน้ำไหลออกได้ดี</p>
+                    </div>
+                    <div class="fact-item">
+                        <h4>MVTR</h4>
+                        <p>อัตราการระบายไอน้ำ สำคัญสำหรับเสื้อ Breathable</p>
+                    </div>
+                    <div class="fact-item">
+                        <h4>Hydrostatic Head</h4>
+                        <p>ความสามารถต้านทานแรงดันน้ำ</p>
+                    </div>
+                    <div class="fact-item">
+                        <h4>DWR Durability</h4>
+                        <p>ความทนทานของชั้นเคลือบกันน้ำต่อการซัก</p>
+                    </div>
+                </div>
+            </div>
+            <div class="science-visual">
+                <div class="droplet-demo">
+                    <div class="droplet"></div>
+                </div>
+                <h3 style="margin-bottom: 10px;">Water Repellency Effect</h3>
+                <p style="color: rgba(255,255,255,0.5); font-size: 14px;">น้ำไหลออกจากผ้าโดยไม่ซึมเข้าเนื้อผ้า</p>
+                <div class="fabric-layer"></div>
+                <p style="margin-top: 10px; color: rgba(255,255,255,0.4); font-size: 12px;">Fabric Layer with DWR Coating</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header">
+            <div class="section-tag">รีวิวจากลูกค้า</div>
+            <h2 class="section-title">นัก Outdoor เขาพูดถึงเราอย่างไร</h2>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"เสื้อ GORE-TEX ของผมหลังซักด้วย GOAT TEX น้ำไหลออกได้ดีขึ้นมาก ก่อนหน้านี้ใช้น้ำยาซักผ้าทั่วไปแล้วน้ำซึมเข้าเลย ตอนนี้กลับมาเหมือนใหม่"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">N</div>
+                    <div class="author-info">
+                        <h4>Nattapong S.</h4>
+                        <p>Hiker & Trail Runner</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"ใช้ GOAT TEX Wash + Repel ซักเสื้อ The North Face แล้ว DWR กลับมาทำงานได้ดีจริง ๆ ราคาถูกกว่านำเข้ามาก แถมเป็นของไทยอีก"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">P</div>
+                    <div class="author-info">
+                        <h4>Pimchanok K.</h4>
+                        <p>Backpacker</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"สำหรับคนที่ขี่มอเตอร์ไซค์ท่องเที่ยวบ่อย ๆ การมีเสื้อกันฝนที่ทำงานได้เต็มที่คือสิ่งสำคัญ GOAT TEX ช่วยให้ผมมั่นใจว่าเสื้อจะไม่พังก่อนเวลาอันควร"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">T</div>
+                    <div class="author-info">
+                        <h4>Thanakrit W.</h4>
+                        <p>Motorbike Tourer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <h2>พร้อมดูแลเสื้อผ้า Technical ของคุณ?</h2>
+        <p>เริ่มต้นด้วย GOAT TEX Technical Wash แล้วสัมผัสความแตกต่าง หรือเลือกชุด Wash + Repel สำหรับการดูแลแบบครบวงจร</p>
+        <a href="#products" class="cta-btn">สั่งซื้อตอนนี้ →</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>GOAT TEX</h3>
+                <p>ผลิตภัณฑ์ดูแลเสื้อผ้า Technical Outdoor จากประเทศไทย ออกแบบมาเฉพาะทางสำหรับเสื้อผ้า Waterproof-Breathable โดยไม่ใช้ PFC/PFAS</p>
+            </div>
+            <div class="footer-col">
+                <h4>ผลิตภัณฑ์</h4>
+                <ul>
+                    <li><a href="#">Technical Wash</a></li>
+                    <li><a href="#">Wash + Repel</a></li>
+                    <li><a href="#">Pro Repel</a></li>
+                    <li><a href="#">Bundle Set</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>เรียนรู้</h4>
+                <ul>
+                    <li><a href="#">วิธีใช้</a></li>
+                    <li><a href="#">ความรู้เรื่องผ้า</a></li>
+                    <li><a href="#">DWR คืออะไร</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>ติดต่อ</h4>
+                <ul>
+                    <li><a href="#">เกี่ยวกับเรา</a></li>
+                    <li><a href="#">ติดต่อสอบถาม</a></li>
+                    <li><a href="#">Shopee</a></li>
+                    <li><a href="#">Lazada</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 GOAT TEX. Technical Textile Care from Thailand. ไม่มีสาร PFC/PFAS. ไม่ใช่ผลิตภัณฑ์ที่ได้รับการรับรองจาก GORE-TEX®, Arc'teryx®, The North Face®, หรือแบรนด์อื่น</p>
+        </div>
+    </footer>
+
+</body>
+</html>
